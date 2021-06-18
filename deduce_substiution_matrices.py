@@ -1,5 +1,4 @@
 import pandas as pd
-
 import project_utilities as utils
 
 # string headers of variant DataFrame
@@ -29,7 +28,8 @@ def count_af(substitution_matrix, variant_df, subject_lst, subject_headers):
             if alt == ref:  # skip synonymous as data does not contain synonymous substitutions
                 continue
             ref_alt_df = ref_df[ref_df[alt_str] == alt]  # use only variant in which the alternative is alt
-            substitution_matrix.at[ref, alt] = ref_alt_df[AF].sum()  # sum corresponding allele frequencies into substitution matrix
+            substitution_matrix.at[ref, alt] = ref_alt_df[
+                AF].sum()  # sum corresponding allele frequencies into substitution matrix
 
     return substitution_matrix
 
@@ -40,7 +40,7 @@ def get_nuc_counts(codon_counts):
     :param codon_counts: A pandas Series containing the number of appearances of each codon in the reference genome
     :return:  pandas Series containing the number of appearances of each nucleotide in the reference genome
     """
-    nuc_counts = pd.Series(0, index = utils.nucleotides_lst)
+    nuc_counts = pd.Series(0, index=utils.nucleotides_lst)
     for codon in codon_counts.index:
         for nuc in codon:
             nuc_counts[nuc] += codon_counts.loc[codon]
@@ -65,7 +65,7 @@ def normalise_matrix(substitution_matrix, counts):
     return substitution_matrix
 
 
-def calculate_substitution_matrix(variant_df, subject_lst, subject_header, normalize = True, counts = None):
+def calculate_substitution_matrix(variant_df, subject_lst, subject_header, normalize=True, counts=None):
     """
     calculate a nucleotide/codon substitution matrix according to aggregated variant information
     :param variant_df: DataFrame which contains aggregated variant information: for each genomic position,
@@ -87,7 +87,7 @@ def calculate_substitution_matrix(variant_df, subject_lst, subject_header, norma
     return substitution_matrix
 
 
-def calculate_hc1(variant_df, normalize = True, codon_counts = None):
+def calculate_hc1(variant_df, normalize=True, codon_counts=None):
     """
     calculate a codon substitution matrix according to aggregated variant information
     :param variant_df: DataFrame which contains aggregated variant information: for each genomic position,
@@ -98,11 +98,14 @@ def calculate_hc1(variant_df, normalize = True, codon_counts = None):
     :return: codon substitution matrix
     """
 
-    return calculate_substitution_matrix(variant_df, utils.codon_lst_non_stop, (REF_CODON, ALT_CODON),
-                                         normalize = normalize, counts = codon_counts)
+    return calculate_substitution_matrix(variant_df,
+                                         utils.codon_lst_non_stop,
+                                         (REF_CODON, ALT_CODON),
+                                         normalize=normalize,
+                                         counts=codon_counts)
 
 
-def calculate_hn1(variant_df, normalize = True, codon_counts = None):
+def calculate_hn1(variant_df, normalize=True, codon_counts=None):
     """
     calculate a nucleotide substitution matrix according to aggregated variant information
     :param variant_df: DataFrame which contains aggregated variant information: for each genomic position,
@@ -113,7 +116,12 @@ def calculate_hn1(variant_df, normalize = True, codon_counts = None):
     :return: nucleotide substitution matrix
     """
 
-    nuc_counts = get_nuc_counts(codon_counts)
-
-    return calculate_substitution_matrix(variant_df, utils.nucleotides_lst, (REF_NUC, ALT_NUC),
-                                         normalize = normalize, counts = nuc_counts)
+    if normalize:
+        nuc_counts = get_nuc_counts(codon_counts)
+    else:
+        nuc_counts = None
+    return calculate_substitution_matrix(variant_df,
+                                         utils.nucleotides_lst,
+                                         (REF_NUC, ALT_NUC),
+                                         normalize=normalize,
+                                         counts=nuc_counts)
