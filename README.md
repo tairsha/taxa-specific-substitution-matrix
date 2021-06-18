@@ -2,13 +2,13 @@
 This is a collection of Python implemented bioinformatic algorithms for the generation of substitution matrices from intra-taxa genetic variation data. It allows you to infer and analyse the basic set of substitution matrices that may be genrated from tyour data. These algorithms were implemented and published on human genetic variation data, but may be used widely for any variational dataset.
 
 # What's in here?
-## deduce_substiution_matrices.py
+### deduce_substiution_matrices.py
 This module can be used to convert aggregated genetic variant information into substitution matrices. You may create substitution matrices in all resolutios: nucleotide substitution matrix, codon substitution matrix, and amino-acid substitution matrix.
 
-## calculate_ha.py
+### calculate_ha.py
 This module can be used to construct an amino-acid substitution matrix from a codon substitution matrix which is taken to the specified power.
 
-## symmtery_analysis.py
+### symmtery_analysis.py
 This module can be used to perform a symmetry analysis on a substitution matrix.
 
 # Basic usage
