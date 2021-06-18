@@ -16,7 +16,7 @@ Utilities to support other modules
 ### deduce_substiution_matrices.py
 # Usage
 
-`<from deduce_substiution_matrices import *
+`<from deduce_substiution_matrices import *>`
 
 """
   codon_counts contains counts of the number of occurances for each 
