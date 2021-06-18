@@ -16,7 +16,7 @@ Utilities to support other modules
 ### deduce_substiution_matrices.py
 # Usage
 
-from deduce_substiution_matrices import *
+`<from deduce_substiution_matrices import *
 
 """
   codon_counts contains counts of the number of occurances for each 
@@ -114,7 +114,7 @@ calculate_hn1(variant_df, normalize=True, codon_counts=codon_counts)
   Calculate a nucleotide substitution matrix according to aggregated variant 
   information without normalization
 """
-calculate_hn1(variant_df, normalize=False)
+calculate_hn1(variant_df, normalize=False)>`
 
 ### calculate_ha.py
 You may convert a codon substitution matrix into an amino-acid substitution matrix
