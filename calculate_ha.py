@@ -12,6 +12,7 @@ def aa_info(aa, codon_count_series, aa_sum_ref):
     """
     given an aa a, return a list of tuples: first in the tuple is a codon that codes for a,
     and second is the codon frequency wrt all other codons that code for a
+    :param aa_sum_ref: a Series or dictionary of the sum of counts of codon appearances according to aa
     :param codon_count_series: a pandas Series containing the number of appearances of each codon in the refrenence genome
     :param aa: a string representing an amino-acid
     :return: dict of codon string and it's amino-acid relative frequency
