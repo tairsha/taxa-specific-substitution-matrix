@@ -1,7 +1,7 @@
 # What is taxa-specific-substitution-matrix?
 This is a collection of Python implemented bioinformatic algorithms for the generation of substitution matrices from intra-taxa genetic variation data. It allows one to infer a basic set of substitution matrices that may be genrated from one's data. These algorithms were implemented and published on human genetic variation data, but may be used widely for any variational dataset.
 
-### Usage examples can be found in usage_examples.ipynb
+### Usage examples can be found @ usage_examples.ipynb
 
 ## What's in here?
 ### deduce_substitution_matrices.py
