@@ -13,15 +13,15 @@ This module can be used to perform a symmetry analysis on a substitution matrix.
 
 # Basic usage
 
-## deduce_substiution_matrices.py
+### deduce_substiution_matrices.py
 
-## calculate_ha.py
+### calculate_ha.py
 You may convert a codon substitution matrix into an amino-acid substitution matrix
 
 construct amino-acid substitution matrix from codon substitution matrix, use build_aa_matrix as follows:
 build_aa_matrix(codon_matrix, codon_count_series)
 
-## symmtery_analysis.py
+### symmtery_analysis.py
 
 # Please cite 
 Evolutionary and Functional Lessons from Human-Specific Amino-Acid Substitution Matrices
