@@ -14,6 +14,107 @@ Utilities to support other modules
 # Basic usage
 
 ### deduce_substiution_matrices.py
+# Usage
+
+from deduce_substiution_matrices import *
+
+"""
+  codon_counts contains counts of the number of occurances for each 
+  codon in the specific genomic location at hand. For example: When calculating 
+  a human exome substitution matrix, one would use the count of occurnces of each 
+  codon in exomic regions of the human genome.
+"""
+codon_counts = pd.Series({'AAA': 1896,
+                          'AAC': 1519,
+                          'AAG': 1565,
+                          'AAT': 1528,
+                          'ACA': 1271,
+                          'ACC': 1265,
+                          'ACG': 1273,
+                          'ACT': 1985,
+                          'AGA': 1582,
+                          'AGC': 1625,
+                          'AGG': 1751,
+                          'AGT': 1412,
+                          'ATA': 1397,
+                          'ATC': 1660,
+                          'ATG': 1285,
+                          'ATT': 1603,
+                          'CAA': 1757,
+                          'CAC': 1540,
+                          'CAG': 1214,
+                          'CAT': 1895,
+                          'CCA': 1805,
+                          'CCC': 1474,
+                          'CCG': 1334,
+                          'CCT': 1699,
+                          'CGA': 1029,
+                          'CGC': 1107,
+                          'CGG': 1543,
+                          'CGT': 1513,
+                          'CTA': 1970,
+                          'CTC': 1106,
+                          'CTG': 1895,
+                          'CTT': 1258,
+                          'GAA': 1874,
+                          'GAC': 1553,
+                          'GAG': 1016,
+                          'GAT': 1248,
+                          'GCA': 1625,
+                          'GCC': 1924,
+                          'GCG': 1608,
+                          'GCT': 1829,
+                          'GGA': 1064,
+                          'GGC': 1783,
+                          'GGG': 1999,
+                          'GGT': 1538,
+                          'GTA': 1165,
+                          'GTC': 1181,
+                          'GTG': 1239,
+                          'GTT': 1972,
+                          'TAC': 1825,
+                          'TAT': 1896,
+                          'TCA': 1126,
+                          'TCC': 1228,
+                          'TCG': 1990,
+                          'TCT': 1842,
+                          'TGC': 1331,
+                          'TGG': 1885,
+                          'TGT': 1400,
+                          'TTA': 1747,
+                          'TTC': 1898,
+                          'TTG': 1122,
+                          'TTT': 1329}) 
+
+"""
+  Calculate a codon substitution matrix according to aggregated variant 
+  information, and normliaze rows to embody the estimted contiodional 
+  substitution probabilites
+"""
+calculate_hc1(variant_df, normalize=True, codon_counts=codon_counts)
+
+"""
+  Calculate a codon substitution matrix according to aggregated variant 
+  information without normalization
+"""
+calculate_hc1(variant_df, normalize=False)
+
+"""
+Calculate a nucleotide substitution matrix according to aggregated variant 
+information, and normliaze rows to embody the estimted contiodional substitution 
+probabilites. codon_counts contains counts of the number of occurances for each 
+codon in the specific genomic location at hand. For example: When calculating 
+a human exome substitution matrix, one would use the count of occurnces of each 
+codon in exomic regions of the human genome.
+"""
+
+calculate_hn1(variant_df, normalize=True, codon_counts=codon_counts)
+
+"""
+  Calculate a nucleotide substitution matrix according to aggregated variant 
+  information without normalization
+"""
+calculate_hn1(variant_df, normalize=False)
 
 ### calculate_ha.py
 You may convert a codon substitution matrix into an amino-acid substitution matrix
